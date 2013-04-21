@@ -1,3 +1,11 @@
-## User Caml Pack
+caml-pack
+=========
 
-A personal caml pack to ease the coding in caml environment
+A ml environment.
+
+# install
+
+In your `.emacs-live.el` add this snippet:
+```elisp
+(live-add-packs '(caml-pack))
+```
