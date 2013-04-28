@@ -7,5 +7,5 @@ A ml environment.
 
 In your `.emacs-live.el` add this snippet:
 ```elisp
-(live-add-packs '(caml-pack))
+(live-add-packs '("/path/to/caml-pack"))
 ```
