@@ -1,3 +1,9 @@
+;;; caml-pack.el --- Caml
+
+;;; Commentary:
+
+;;; Code:
+
 (install-packs '(tuareg))
 
 (require 'tuareg)
@@ -19,3 +25,5 @@
 (setq tuareg-interactive-scroll-to-bottom-on-output t)
 
 (define-key tuareg-mode-map (kbd "C-c C-z") 'switch-to-caml-buffer)
+
+;;; caml-pack ends here
