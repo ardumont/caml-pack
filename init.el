@@ -18,4 +18,4 @@
 ;; make the interactive buffer scroll if needed
 (setq tuareg-interactive-scroll-to-bottom-on-output t)
 
-(live-load-config-file "bindings.el")
+(define-key tuareg-mode-map (kbd "C-c C-z") 'switch-to-caml-buffer)
