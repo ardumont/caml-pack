@@ -1,11 +1,22 @@
 caml-pack
 =========
 
-A ml environment.
+A ML language environment setup.
 
-# install
+# Install
 
-In your `.emacs-live.el` add this snippet:
+This is compatible with [emacs-live-packs](https://github.com/ardumont/emacs-live-packs) and [prelude-packs](https://github.com/ardumont/prelude-packs).
+
+## [emacs-live-packs](https://github.com/ardumont/emacs-live-packs)
+
+Add this snippet in your `.emacs-live.el`:
 ```elisp
-(live-add-packs '("/path/to/caml-pack"))
+(emacs-live-packs/add-live-packs "~/.emacs-live-packs/" '("caml-pack"))
+```
+
+## [prelude-packs](https://github.com/ardumont/prelude-packs)
+
+Add this snippet in your `prelude-packs.el`:
+```elisp
+(prelude-packs/load-packs "~/.prelude-packs/" '("caml-pack"))
 ```
