@@ -4,9 +4,13 @@
 
 ;;; Code:
 
-(install-packs '(tuareg))
+(install-packs '(tuareg
+                 smartscan))
 
 (require 'tuareg)
+(require 'smartscan)
+
+(add-hook 'tuareg-mode-hook (lambda () (smartscan-mode)))
 
 (defun switch-to-caml-buffer ()
   "Switch to the caml buffer if needed"
