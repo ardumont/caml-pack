@@ -4,6 +4,7 @@
 
 ;;; Code:
 
+(require 'install-packages-pack)
 (install-packs '(tuareg
                  smartscan))
 
@@ -30,4 +31,5 @@
 
 (define-key tuareg-mode-map (kbd "C-c C-z") 'switch-to-caml-buffer)
 
+(provide 'caml-pack)
 ;;; caml-pack ends here
