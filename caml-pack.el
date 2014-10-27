@@ -5,8 +5,8 @@
 ;;; Code:
 
 (require 'install-packages-pack)
-(install-packs '(tuareg
-                 smartscan))
+(install-packages-pack/install-packs '(tuareg
+                                       smartscan))
 
 (require 'tuareg)
 (require 'smartscan)
