@@ -16,8 +16,11 @@
 
   :config (progn
             (add-hook 'tuareg-mode-hook 'smartscan-mode)
-            (custom-set-variables '(tuareg-comment-end-extra-indent 1)             ;; multi line comments
-                                  '(tuareg-interactive-scroll-to-bottom-on-output t))) ;; make the interactive buffer scroll if needed
+            (custom-set-variables
+             ;; multi line comments
+             '(tuareg-comment-end-extra-indent 1)
+             ;; make the interactive buffer scroll if needed
+             '(tuareg-interactive-scroll-to-bottom-on-output t)))
 
   :bind ("C-c C-z" . switch-to-caml-buffer))
 
