@@ -22,7 +22,8 @@
              ;; make the interactive buffer scroll if needed
              '(tuareg-interactive-scroll-to-bottom-on-output t)))
 
-  :bind ("C-c C-z" . switch-to-caml-buffer))
+  :bind (("C-c C-z" . switch-to-caml-buffer)
+         ("C-c C-l" . tuareg-eval-buffer)))
 
 (provide 'caml-pack)
 ;;; caml-pack ends here
