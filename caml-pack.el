@@ -50,7 +50,7 @@
 (caml-pack/install-ml-packages '("merlin" "ocp-indent"))
 
 ;; Add opam emacs directory to the load-path
-(setq opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
+(defconst opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
 (add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
 ;; Load merlin-mode
 (require merlin)
