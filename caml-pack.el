@@ -20,7 +20,11 @@
         (deferred:process "opam" "install" package)
         (deferred:nextc it
           (lambda (x)
-            (message "Package '%s' is%s installed!" package (if (caml-pack/command-installed-p! package) "" " still not"))))))))
+            (message "Package '%s' is%s installed!" package
+                     (if (or (caml-pack/command-installed-p! package)
+                             (caml-pack/command-installed-p! (format "ocaml%s" package)))
+                         ""
+                       " still not"))))))))
 
 (defun caml-pack/install-ml-packages (packages)
   "Trigger cabal install of PACKAGES."
@@ -29,24 +33,24 @@
 (use-package smartscan)
 
 (use-package tuareg
-  :init (defun switch-to-caml-buffer ()
-          "Switch to the caml buffer if needed."
-          (interactive)
-          ;; will trigger a caml buffer if needed
-          (tuareg-run-process-if-needed)
-          (pop-to-buffer tuareg-interactive-buffer-name))
+  :config
+  (defun switch-to-caml-buffer ()
+    "Switch to the caml buffer if needed."
+    (interactive)
+    ;; will trigger a caml buffer if needed
+    (tuareg-run-process-if-needed)
+    (pop-to-buffer tuareg-interactive-buffer-name))
 
   (bind-key "C-c C-z" 'switch-to-caml-buffer tuareg-mode-map)
   (bind-key "C-c C-l" 'tuareg-eval-buffer    tuareg-mode-map)
+  (add-hook 'tuareg-mode-hook 'smartscan-mode)
+  (custom-set-variables
+   ;; multi line comments
+   '(tuareg-comment-end-extra-indent 1)
+   ;; make the interactive buffer scroll if needed
+   '(tuareg-interactive-scroll-to-bottom-on-output t)))
 
-  :config (progn
-            (add-hook 'tuareg-mode-hook 'smartscan-mode)
-            (custom-set-variables
-             ;; multi line comments
-             '(tuareg-comment-end-extra-indent 1)
-             ;; make the interactive buffer scroll if needed
-             '(tuareg-interactive-scroll-to-bottom-on-output t))))
-
+;; install system deps
 (caml-pack/install-ml-packages '("merlin" "ocp-indent"))
 
 ;; Add opam emacs directory to the load-path
